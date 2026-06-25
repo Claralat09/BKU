@@ -11,6 +11,7 @@
 
 #include "oled.h"
 
+
 // ============================================
 // Arduino Entry Points
 // ============================================
@@ -28,21 +29,26 @@ void loop()
 {
   // Main program loop
 
-  if (readKY023X() > 0) {
-                            writeToOled("right");  // Display the current buffer on the matrix
 
-              }
-                  if (readKY023X()  < 0) {
-        writeToOled("stop");  // Turn off all LEDs in the matrix
+  //  int result_X = readKY023X();
+  // if (readKY023X() > 0) {
+                            // writeToOled("right");
+  int result_X = readKY023X();
+  int result_Y = readKY023Y();
+  writeToOled(result_X);
+  writeToOled(result_Y);
+  int i = readServos();
 
-}
-    if (readKY023Y() > 0) {
-        setServoAngle(SERVO1, -45);
+  if (readKY023X()  < 0) {
+    writeToOled("stop");  // Turn off all LEDs in the matrix
+  }
 
-}
-    if (readKY023Y()  < 0) {
-        setServoAngle(SERVO1, 45);
+  if (readKY023Y() > 0) {
+    setServoAngle(SERVO1, -360);
+  }
 
-}
+  if (readKY023Y()  < 0) {
+    setServoAngle(SERVO1, 360);
+  }
 
-}
+}                                                                                                                                                                                                         

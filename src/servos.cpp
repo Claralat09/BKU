@@ -58,3 +58,9 @@ void testServos() {
   }
   clearOled();
 }
+
+
+
+int readServos() {
+  return servo1.read();
+}

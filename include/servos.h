@@ -28,4 +28,7 @@ void testServos();
 // Function to test single servo sweep
 void testServoSweep(int servoNum);
 
+
+int readServos();
+
 #endif // SERVOS_H
